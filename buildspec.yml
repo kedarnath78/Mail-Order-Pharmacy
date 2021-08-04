@@ -1,13 +1,16 @@
 version: 0.2
+
 phases:
-  pre_build:
-    commands:
-    - echo "Entered the pre-build phase"
+  install:
+    runtime-versions:
+      java: corretto11
   build:
     commands:
-    - echo "Entered build phase"
-    - mvn clean package
- 
+      - cd drugservice
+      - java -version
+      - mvn -version
 artifacts:
   files:
-    
+    - '*/'
+  discard-paths: yes
+  base-directory: 'drugservice'
